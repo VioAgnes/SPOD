@@ -2,43 +2,63 @@
 # =============================================================================
 # SPOD VideoMMMU Evaluation Launcher
 # =============================================================================
+# Usage:
+#   bash run_videommmu.sh <mode> <subset> [--extra-flags]
+#
+# Modes:
+#   spod       SPOD-enhanced evaluation (default)
+#   baseline   Standard evaluation without SPOD
+#   test       Quick test mode (3 samples per subset)
+#
+# Subsets:
+#   perception      Visual information extraction questions
+#   comprehension   Concept understanding questions
+#   adaptation      Knowledge application questions
+#   all             All subsets combined
+#
+# Example:
+#   bash run_videommmu.sh spod all
+#   bash run_videommmu.sh baseline perception
+#   bash run_videommmu.sh test all
+# =============================================================================
 
 set -e
-
-MODE="${1:-spod}"
-SUBSET="${2:-all}"
-shift 2 || true
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 cd "${PROJECT_ROOT}"
 
-TEST_FLAG=""
-OUTPUT_DIR="${OUTPUT_DIR:-./outputs/videommmu}"
+MODE="${1:-spod}"
+SUBSET="${2:-all}"
 
-if [[ "$MODE" == "test" ]]; then
+# Handle test mode
+TEST_FLAG=""
+FINAL_MODE="${MODE}"
+FINAL_OUTPUT_DIR="${OUTPUT_DIR:-./outputs/videommmu}"
+
+if [[ "${MODE}" == "test" ]]; then
     TEST_FLAG="--test-mode"
-    MODE="spod"
-    OUTPUT_DIR="${OUTPUT_DIR}_test"
+    FINAL_MODE="spod"
+    FINAL_OUTPUT_DIR="${OUTPUT_DIR:-./outputs/videommmu_test}"
 fi
 
-# Default: Qwen2.5-VL-7B
+# Environment defaults
 MODEL_PATH="${MODEL_PATH:-Qwen/Qwen2.5-VL-7B-Instruct}"
 VIDEO_ROOT="${VIDEO_ROOT:-/root/autodl-tmp/DATA/VideoMMMU}"
 
 echo "============================================================"
-echo "  SPOD VideoMMMU Evaluation"
-echo "  Model:  ${MODEL_PATH}"
-echo "  Mode:   ${MODE}"
+echo "  SPOD — VideoMMMU Evaluation"
+echo "  Mode:   ${FINAL_MODE}"
 echo "  Subset: ${SUBSET}"
+echo "  Model:  ${MODEL_PATH}"
 echo "  FDA:    L8-L16 | Deep: L22"
 echo "============================================================"
 
-python -m src.experiments.downstream.evaluate \
+python -m src.experiments.downstream.run_videommmu \
     --model-path "${MODEL_PATH}" \
     --subset "${SUBSET}" \
-    --mode "${MODE}" \
-    --output-dir "${OUTPUT_DIR}" \
+    --mode "${FINAL_MODE}" \
+    --output-dir "${FINAL_OUTPUT_DIR}" \
     --device cuda \
     --num-frames 16 \
     --max-new-tokens 1024 \

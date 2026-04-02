@@ -6,10 +6,10 @@ Video Large Language Models (Video-LLMs) frequently generate temporally inconsis
 
 SPOD recovers suppressed temporal signals through orthogonal subspace decomposition within a **single inference pass**:
 
-| Component | Description |
-|-----------|-------------|
-| **FDA** | Frame Distinctiveness Analysis — identifies temporally salient frames by measuring hidden-state discriminability across middle layers |
-| **TDS** | Temporal Delta Subspace — constructs an orthogonal temporal subspace $\mathcal{T}$ and non-temporal subspace $\mathcal{P}$ from weighted inter-frame differences |
+| Component | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| **FDA**   | Frame Distinctiveness Analysis — identifies temporally salient frames by measuring hidden-state discriminability across middle layers |
+| **TDS**   | Temporal Delta Subspace — constructs an orthogonal temporal subspace $\mathcal{T}$ and non-temporal subspace $\mathcal{P}$ from weighted inter-frame differences |
 
 
 
@@ -38,47 +38,47 @@ pip install -r requirements.txt
 
 ### 3. Dataset Download
 
-| Dataset | GitHub |
-|---------|--------|
-| VideoMMMU | [Link](https://github.com/EvolvingLMMs-Lab/VideoMMMU) |
-| EventHallusion | [Link](https://github.com/Stevetich/EventHallusion) |
-| VidHalluc | [Link](https://github.com/CyL97/VidHalluc) |
+| Dataset        | GitHub                                                |
+| -------------- | ----------------------------------------------------- |
+| VideoMMMU      | [Link](https://github.com/EvolvingLMMs-Lab/VideoMMMU) |
+| EventHallusion | [Link](https://github.com/Stevetich/EventHallusion)   |
+| VidHalluc      | [Link](https://github.com/CyL97/VidHalluc)            |
 
 ## 📊 Running Experiments
 
 ### Theory Analysis
 
 ```bash
-bash scripts/run_theory.sh perception 30
-bash scripts/run_theory.sh all 100
+bash run_theory.sh perception 30
+bash run_theory.sh all 100
 ```
 
 ### VideoMMMU Evaluation
 
 ```bash
 # SPOD
-bash scripts/run_videommmu.sh spod all
+bash run_videommmu.sh spod all
 
 # Baseline comparison
-bash scripts/run_videommmu.sh baseline all
+bash run_videommmu.sh baseline all
 ```
 
 ### EventHallusion Evaluation
 
 ```bash
 # SPOD
-bash scripts/run_eventhallusion.sh spod all
+bash run_eventhallusion.sh spod all
 
 # Baseline
-bash scripts/run_eventhallusion.sh baseline entire
+bash run_eventhallusion.sh baseline entire
 ```
 
 ### VidHalluc Evaluation
 
 ```bash
 # SPOD
-bash scripts/run_vidhalluc.sh spod all
+bash run_vidhalluc.sh spod all
 
 # Baseline
-bash scripts/run_vidhalluc.sh baseline all
+bash run_vidhalluc.sh baseline all
 ```

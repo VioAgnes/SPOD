@@ -8,8 +8,6 @@ import argparse
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent))
-
 
 def main():
     parser = argparse.ArgumentParser(description="SPOD: Semantic Prior-Orthogonal Decomposition")

@@ -2,32 +2,49 @@
 # =============================================================================
 # SPOD VidHalluc Evaluation Launcher
 # =============================================================================
+# Usage:
+#   bash run_vidhalluc.sh <mode> <subset> [--extra-flags]
+#
+# Modes:
+#   spod       SPOD-enhanced evaluation (default)
+#   baseline   Standard evaluation without SPOD
+#
+# Subsets:
+#   ach_binaryqa   Action hallucination (binary QA)
+#   ach_mcq        Action hallucination (multiple choice)
+#   sth            State-of-things hallucination
+#   tsh            Transition-of-state hallucination
+#   all            All subsets combined
+#
+# Example:
+#   bash run_vidhalluc.sh spod all
+#   bash run_vidhalluc.sh baseline ach_binaryqa
+# =============================================================================
 
 set -e
-
-MODE="${1:-spod}"
-SUBSET="${2:-all}"
-shift 2 || true
-EXTRA_FLAGS="$@"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 cd "${PROJECT_ROOT}"
 
-# Default: Qwen2.5-VL-7B
+MODE="${1:-spod}"
+SUBSET="${2:-all}"
+EXTRA_FLAGS="${@:3}"
+
+# Environment defaults
 MODEL_PATH="${MODEL_PATH:-Qwen/Qwen2.5-VL-7B-Instruct}"
 VIDEO_ROOT="${VIDEO_ROOT:-/root/autodl-tmp/DATA/VidHalluc/videos}"
 QUESTION_ROOT="${QUESTION_ROOT:-/root/autodl-tmp/DATA/VidHalluc}"
 OUTPUT_DIR="${OUTPUT_DIR:-./outputs/vidhalluc}"
 
 echo "============================================================"
-echo "  SPOD VidHalluc Evaluation"
-echo "  Model:  ${MODEL_PATH}"
+echo "  SPOD — VidHalluc Evaluation"
 echo "  Mode:   ${MODE}"
 echo "  Subset: ${SUBSET}"
+echo "  Model:  ${MODEL_PATH}"
 echo "============================================================"
 
-python run_evaluation_vidhalluc.py \
+python -m src.experiments.downstream.run_vidhalluc \
     --mode "${MODE}" \
     --subset "${SUBSET}" \
     --model-path "${MODEL_PATH}" \

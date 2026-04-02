@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-SPOD VidHalluc Evaluation
-=========================
+SPOD VideoHallucination Evaluation
+================================
 """
 import argparse
 import json
@@ -14,8 +14,6 @@ import torch
 from PIL import Image
 from tqdm import tqdm
 
-sys.path.insert(0, str(Path(__file__).parent))
-
 from src.models.spod import (
     compute_fda_frame_weights,
     build_tds_subspaces,
@@ -25,7 +23,7 @@ from src.models.video_io import load_video
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="SPOD VidHalluc Evaluation")
+    parser = argparse.ArgumentParser(description="SPOD VideoHallucination Evaluation")
     parser.add_argument("--model-path", type=str,
                         default="/root/autodl-tmp/MODELS/Qwen2.5-VL-7B-Instruct")
     parser.add_argument("--subset", type=str, default="all",
@@ -376,7 +374,7 @@ def main():
     mode = args.mode
 
     print("=" * 70)
-    print("  SPOD VidHalluc Evaluation")
+    print("  SPOD VideoHallucination Evaluation")
     print(f"  Mode: {mode.upper()}")
     print(f"  Subsets: {subsets}")
     print("=" * 70)
