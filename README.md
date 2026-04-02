@@ -1,0 +1,84 @@
+# SPOD: Recovering Suppressed Temporal Evidence in Video-LLMs via Single-Pass Orthogonal Decomposition
+
+# 📖 Overview
+
+Video Large Language Models (Video-LLMs) frequently generate temporally inconsistent responses due to an inherent bias toward static visual cues over dynamic temporal information—a failure mode termed **temporal hallucination**. Our key insight reveals that temporal information already exists within hidden representations but is systematically suppressed during standard inference.
+
+SPOD recovers suppressed temporal signals through orthogonal subspace decomposition within a **single inference pass**:
+
+| Component | Description |
+|-----------|-------------|
+| **FDA** | Frame Distinctiveness Analysis — identifies temporally salient frames by measuring hidden-state discriminability across middle layers |
+| **TDS** | Temporal Delta Subspace — constructs an orthogonal temporal subspace $\mathcal{T}$ and non-temporal subspace $\mathcal{P}$ from weighted inter-frame differences |
+
+
+
+## 🚀 Quick Start
+
+### 1. Environment Setup
+
+```bash
+# Create conda environment
+conda create -n spod python=3.10 -y
+conda activate spod
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### 2. Model Download
+
+| Model              | Size | HuggingFace Link                                           |
+| ------------------ | ---- | ---------------------------------------------------------- |
+| **Qwen2.5-VL-7B**  | 7B   | [Link](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) |
+| **VideoLlama2-7B** | 7B   | [Link](https://huggingface.co/DAMO-NLP-SG/VideoLLaMA2-7B)  |
+| **VideoLlava-7B**  | 7B   | [Link](https://huggingface.co/LanguageBind/Video-LLaVA-7B) |
+
+
+
+### 3. Dataset Download
+
+| Dataset | GitHub |
+|---------|--------|
+| VideoMMMU | [Link](https://github.com/EvolvingLMMs-Lab/VideoMMMU) |
+| EventHallusion | [Link](https://github.com/Stevetich/EventHallusion) |
+| VidHalluc | [Link](https://github.com/CyL97/VidHalluc) |
+
+## 📊 Running Experiments
+
+### Theory Analysis
+
+```bash
+bash scripts/run_theory.sh perception 30
+bash scripts/run_theory.sh all 100
+```
+
+### VideoMMMU Evaluation
+
+```bash
+# SPOD
+bash scripts/run_videommmu.sh spod all
+
+# Baseline comparison
+bash scripts/run_videommmu.sh baseline all
+```
+
+### EventHallusion Evaluation
+
+```bash
+# SPOD
+bash scripts/run_eventhallusion.sh spod all
+
+# Baseline
+bash scripts/run_eventhallusion.sh baseline entire
+```
+
+### VidHalluc Evaluation
+
+```bash
+# SPOD
+bash scripts/run_vidhalluc.sh spod all
+
+# Baseline
+bash scripts/run_vidhalluc.sh baseline all
+```
