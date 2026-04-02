@@ -4,12 +4,12 @@
 
 Video Large Language Models (Video-LLMs) frequently generate temporally inconsistent responses due to an inherent bias toward static visual cues over dynamic temporal information—a failure mode termed **temporal hallucination**. Our key insight reveals that temporal information already exists within hidden representations but is systematically suppressed during standard inference.
 
-SPOD recovers suppressed temporal signals through orthogonal subspace decomposition within a **single inference pass**:
+SPOD recovers suppressed temporal evidence through orthogonal subspace decomposition within a **single inference pass**:
 
 | Component | Description                                                  |
 | --------- | ------------------------------------------------------------ |
 | **FDA**   | Frame Distinctiveness Analysis — identifies temporally salient frames by measuring hidden-state discriminability across middle layers |
-| **TDS**   | Temporal Delta Subspace — constructs an orthogonal temporal subspace $\mathcal{T}$ and non-temporal subspace $\mathcal{P}$ from weighted inter-frame differences |
+| **TDS**   | Temporal Delta Subspace — constructs an orthogonal temporal subspace $\mathcal{T}$ and prior subspace $\mathcal{P}$ from weighted inter-frame differences |
 
 
 
