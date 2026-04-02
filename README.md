@@ -28,17 +28,11 @@ pip install -r requirements.txt
 
 ### 2. Model Download
 
-| Model              | Size | HuggingFace Link                                           |
-| ------------------ | ---- | ---------------------------------------------------------- |
-| **Qwen2.5-VL-7B**  | 7B   | [Link](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) |
-| **VideoLlama2-7B** | 7B   | [Link](https://huggingface.co/DAMO-NLP-SG/VideoLLaMA2-7B)  |
-| **VideoLlava-7B**  | 7B   | [Link](https://huggingface.co/LanguageBind/Video-LLaVA-7B) |
-
-
+Please download Qwen2.5-VL-7B, VideoLLaMA2-7B, and Video-LLaVA-7B from their official release pages.
 
 ### 3. Dataset Download
 
-The official datasets of VideoMMMU, EventHallusion, and VidHalluc can be obtained from their respective official sources.
+Please download VideoMMMU, EventHallusion, and VidHalluc from their official sources.
 
 
 
