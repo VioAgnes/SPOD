@@ -369,8 +369,8 @@ def evaluate_eventhallusion(
     if hasattr(args, "mode") and args.mode:
         mode = args.mode
 
-    video_root = getattr(args, "video_root", "/root/autodl-tmp/DATA/eventhallusion")
-    question_root = getattr(args, "question_root", "/root/autodl-tmp/EventHallusion/questions")
+    video_root = getattr(args, "video_root", "./DATA/eventhallusion")
+    question_root = getattr(args, "question_root", "./DATA/EventHallusion/questions")
     num_frames = getattr(args, "num_frames", 16)
     max_new_tokens = getattr(args, "max_new_tokens", 256)
     desc_max_tokens = getattr(args, "desc_max_tokens", 512)

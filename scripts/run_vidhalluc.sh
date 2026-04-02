@@ -33,8 +33,8 @@ EXTRA_FLAGS="${@:3}"
 
 # Environment defaults
 MODEL_PATH="${MODEL_PATH:-Qwen/Qwen2.5-VL-7B-Instruct}"
-VIDEO_ROOT="${VIDEO_ROOT:-/root/autodl-tmp/DATA/VidHalluc/videos}"
-QUESTION_ROOT="${QUESTION_ROOT:-/root/autodl-tmp/DATA/VidHalluc}"
+VIDEO_ROOT="${VIDEO_ROOT:-./DATA/VidHalluc/videos}"
+QUESTION_ROOT="${QUESTION_ROOT:-./DATA/VidHalluc}"
 OUTPUT_DIR="${OUTPUT_DIR:-./outputs/vidhalluc}"
 
 echo "============================================================"

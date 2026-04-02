@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-SPOD VideoHallucination Evaluation
-================================
+SPOD VidHalluc Evaluation
+========================
 """
 import argparse
 import json
@@ -23,17 +23,17 @@ from src.models.video_io import load_video
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="SPOD VideoHallucination Evaluation")
+    parser = argparse.ArgumentParser(description="SPOD VidHalluc Evaluation")
     parser.add_argument("--model-path", type=str,
-                        default="/root/autodl-tmp/MODELS/Qwen2.5-VL-7B-Instruct")
+                        default="./MODELS/Qwen2.5-VL-7B-Instruct")
     parser.add_argument("--subset", type=str, default="all",
                         choices=["ach_binaryqa", "ach_mcq", "sth", "tsh", "all"])
     parser.add_argument("--mode", type=str, default="spod",
                         choices=["spod", "baseline"])
     parser.add_argument("--video-root", type=str,
-                        default="/root/autodl-tmp/DATA/VidHalluc/videos")
+                        default="./DATA/VidHalluc/videos")
     parser.add_argument("--question-root", type=str,
-                        default="/root/autodl-tmp/DATA/VidHalluc")
+                        default="./DATA/VidHalluc")
     parser.add_argument("--output-dir", type=str, default="./outputs/vidhalluc")
     parser.add_argument("--device", type=str, default="cuda")
     parser.add_argument("--attn-impl", type=str, default="flash_attention_2")
@@ -247,8 +247,8 @@ def find_video_path(video_id, video_root):
 
 
 def evaluate_vidhalluc(model, processor, args, mode, subsets):
-    video_root = getattr(args, "video_root", "/root/autodl-tmp/DATA/VidHalluc/videos")
-    question_root = getattr(args, "question_root", "/root/autodl-tmp/DATA/VidHalluc")
+    video_root = getattr(args, "video_root", "./DATA/VidHalluc/videos")
+    question_root = getattr(args, "question_root", "./DATA/VidHalluc")
     num_frames = getattr(args, "num_frames", 8)
     max_new_tokens = getattr(args, "max_new_tokens", 256)
     output_dir = Path(getattr(args, "output_dir", "./outputs/vidhalluc"))
@@ -374,7 +374,7 @@ def main():
     mode = args.mode
 
     print("=" * 70)
-    print("  SPOD VideoHallucination Evaluation")
+    print("  SPOD VidHalluc Evaluation")
     print(f"  Mode: {mode.upper()}")
     print(f"  Subsets: {subsets}")
     print("=" * 70)

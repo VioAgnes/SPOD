@@ -44,7 +44,7 @@ fi
 
 # Environment defaults
 MODEL_PATH="${MODEL_PATH:-Qwen/Qwen2.5-VL-7B-Instruct}"
-VIDEO_ROOT="${VIDEO_ROOT:-/root/autodl-tmp/DATA/VideoMMMU}"
+VIDEO_ROOT="${VIDEO_ROOT:-./DATA/VideoMMMU}"
 
 echo "============================================================"
 echo "  SPOD — VideoMMMU Evaluation"

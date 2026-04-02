@@ -17,15 +17,15 @@ from src.evaluation.evaluate_eventhallusion import evaluate_eventhallusion
 def parse_args():
     parser = argparse.ArgumentParser(description="SPOD EventHallusion Evaluation")
     parser.add_argument("--model-path", type=str,
-                        default="/root/autodl-tmp/MODELS/Qwen2.5-VL-7B-Instruct")
+                        default="./MODELS/Qwen2.5-VL-7B-Instruct")
     parser.add_argument("--subset", type=str, default="all",
                         choices=["entire", "interleave", "misleading", "all"])
     parser.add_argument("--mode", type=str, default="spod",
                         choices=["spod", "baseline"])
     parser.add_argument("--video-root", type=str,
-                        default="/root/autodl-tmp/DATA/eventhallusion")
+                        default="./DATA/eventhallusion")
     parser.add_argument("--question-root", type=str,
-                        default="/root/autodl-tmp/EventHallusion/questions")
+                        default="./DATA/EventHallusion/questions")
     parser.add_argument("--output-dir", type=str, default="./outputs/eventhallusion")
     parser.add_argument("--device", type=str, default="cuda")
     parser.add_argument("--attn-impl", type=str, default="flash_attention_2")

@@ -2,8 +2,7 @@
 VideoMMMU Evaluation Template
 =============================
 
-Reference: https://github.com/EvolvingLMMs-Lab/VideoMMMU
-             https://arxiv.org/abs/2501.13826
+Reference benchmark. See paper for details.
 
 Benchmark overview
 -----------------

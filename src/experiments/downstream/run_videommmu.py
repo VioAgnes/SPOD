@@ -17,7 +17,7 @@ from src.evaluation.evaluator import evaluate_videommmu
 def parse_args():
     parser = argparse.ArgumentParser(description="SPOD VideoMMMU Evaluation")
     parser.add_argument("--model-path", type=str,
-                        default="/root/autodl-tmp/MODELS/Qwen2.5-VL-7B-Instruct")
+                        default="./MODELS/Qwen2.5-VL-7B-Instruct")
     parser.add_argument("--subset", type=str, default="all",
                         choices=["perception", "comprehension", "adaptation", "all"])
     parser.add_argument("--mode", type=str, default="spod",
@@ -29,7 +29,7 @@ def parse_args():
     parser.add_argument("--max-new-tokens", type=int, default=1024)
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--video-root", type=str,
-                        default="/root/autodl-tmp/DATA/VideoMMMU")
+                        default="./DATA/VideoMMMU")
     parser.add_argument("--num-samples", type=int, default=None)
     # FDA hyperparameters
     parser.add_argument("--fda-layer-start", type=int, default=8)

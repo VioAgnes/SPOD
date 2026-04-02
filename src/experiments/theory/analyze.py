@@ -46,9 +46,9 @@ def parse_args():
     parser.add_argument("--output-dir", type=str, default="./outputs/theory")
     parser.add_argument("--device", type=str, default="cuda")
     parser.add_argument("--model-path", type=str,
-                        default="/root/autodl-tmp/MODELS/Qwen2.5-VL-7B-Instruct")
+                        default="./MODELS/Qwen2.5-VL-7B-Instruct")
     parser.add_argument("--video-root", type=str,
-                        default="/root/autodl-tmp/DATA/VideoMMMU")
+                        default="./DATA/VideoMMMU")
     parser.add_argument("--attn-impl", type=str, default="flash_attention_2")
     parser.add_argument("--num-frames", type=int, default=16)
     parser.add_argument("--temporal-dims", type=int, default=16)

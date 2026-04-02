@@ -2,7 +2,7 @@
 VidHalluc Evaluation Template
 =============================
 
-Reference: https://github.com/CyL97/VidHalluc
+Reference benchmark. See paper for details.
 
 Benchmark overview
 -----------------

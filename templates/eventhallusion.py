@@ -2,7 +2,7 @@
 EventHallusion Evaluation Template
 =================================
 
-Reference: https://github.com/Stevetich/EventHallusion
+Reference benchmark. See paper for details.
 
 Benchmark overview
 -----------------

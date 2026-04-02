@@ -32,8 +32,8 @@ EXTRA_FLAGS="${@:3}"
 
 # Environment defaults
 MODEL_PATH="${MODEL_PATH:-Qwen/Qwen2.5-VL-7B-Instruct}"
-VIDEO_ROOT="${VIDEO_ROOT:-/root/autodl-tmp/DATA/eventhallusion}"
-QUESTION_ROOT="${QUESTION_ROOT:-/root/autodl-tmp/EventHallusion/questions}"
+VIDEO_ROOT="${VIDEO_ROOT:-./DATA/eventhallusion}"
+QUESTION_ROOT="${QUESTION_ROOT:-./DATA/EventHallusion/questions}"
 OUTPUT_DIR="${OUTPUT_DIR:-./outputs/eventhallusion}"
 
 echo "============================================================"

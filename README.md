@@ -38,11 +38,10 @@ pip install -r requirements.txt
 
 ### 3. Dataset Download
 
-| Dataset        | GitHub                                                |
-| -------------- | ----------------------------------------------------- |
-| VideoMMMU      | [Link](https://github.com/EvolvingLMMs-Lab/VideoMMMU) |
-| EventHallusion | [Link](https://github.com/Stevetich/EventHallusion)   |
-| VidHalluc      | [Link](https://github.com/CyL97/VidHalluc)            |
+The official datasets of VideoMMMU, EventHallusion, and VidHalluc can be obtained from their respective official sources.
+
+
+
 
 ## 📊 Running Experiments
 
