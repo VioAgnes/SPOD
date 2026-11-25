@@ -4,6 +4,8 @@
 
 ## 1. Introduction
 
+This repository contains the code for **SPOD**, our **ACM Multimedia (MM) 2026** paper.
+
 Video Large Language Models (Video-LLMs) can generate temporally inconsistent responses when static visual cues dominate dynamic temporal evidence. **SPOD** aims to recover temporal evidence from hidden representations through orthogonal subspace decomposition during inference.
 
 | Component | Description |
