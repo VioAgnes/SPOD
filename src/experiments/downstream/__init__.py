@@ -1,4 +1,0 @@
-"""
-SPOD Downstream Evaluation Experiments
-====================================
-"""

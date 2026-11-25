@@ -1,0 +1,14 @@
+{
+  "name": "spod",
+  "source_layer": 22,
+  "gT": 1.1,
+  "gP": 0.3,
+  "gR": 0.95,
+  "weight": "fused",
+  "rank": 4,
+  "prior_rank": 4,
+  "spatial_rank": 8,
+  "video_gain": 1.25,
+  "attention_start": 8,
+  "attention_end": 16
+}

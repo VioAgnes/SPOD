@@ -1,0 +1,27 @@
+# External data and generated files
+/data/
+/models/
+/outputs/
+.cache/
+*.npz
+*.pt
+*.pth
+*.safetensors
+*.mp4
+*.zip
+
+# Python packaging and local environment
+build/
+dist/
+*.egg-info/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+.env.*
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

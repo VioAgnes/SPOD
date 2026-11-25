@@ -1,4 +1,0 @@
-"""
-SPOD Theory Experiments
-=====================
-"""
